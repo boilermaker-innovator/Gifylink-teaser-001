@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teaser Content Form</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f0f2f5;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: #00B964;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin-right: 15px;
+        }
+
+        .header-text {
+            color: #00B964;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: #6b7280;
+            font-size: 16px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab.active {
+            color: #00B964;
+            border-bottom: 2px solid #00B964;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #374151;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 300px;
+            resize: vertical;
+            font-family: inherit;
+            line-height: 1.6;
+        }
+
+        .link-item {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        button.primary {
+            background: #00B964;
+            color: white;
+        }
+
+        button.secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        #preview {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .preview-tabs {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            margin: 15px 0;
+        }
+
+        .preview-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #6b7280;
+            border-bottom: 2px solid transparent;
+        }
+
+        .preview-tab.active {
+            color: #00B964;
+            border-bottom: 2px solid #00B964;
+        }
+
+        .preview-content {
+            background: white;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+
+        .add-link-btn {
+            background: #00B964;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <div class="logo">GL</div>
+            <div class="header-text">
+                <h1>Create Your Teaser</h1>
+                <p>Add your content below to generate your teaser page</p>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('story')">Story Content</button>
+            <button class="tab" onclick="switchTab('links')">Links</button>
+        </div>
+
+        <form id="teaserForm">
+            <!-- Story Tab -->
+            <div id="storyTab" class="tab-content active">
+                <div class="form-group">
+                    <label for="title">Teaser Title</label>
+                    <input type="text" id="title" name="title" 
+                           value="Transform Simple Forms into Beautiful Support Teasers">
+                </div>
+
+                <div class="form-group">
+                    <label for="story">Story Content</label>
+                    <textarea id="story" name="story" placeholder="Paste your story content here...">Have you ever wanted to create an eye-catching teaser for a fundraiser or support campaign, but got stuck because you're not a designer? You're not alone. Most people don't realize that creating beautiful, engaging teasers could be as simple as filling out a form - but that's exactly what we're building with Gifylink.
+
+What is Gifylink?
+Gifylink is a revolutionary tool that transforms basic form inputs into professional-looking support teasers - instantly. No design skills needed. If you can fill out a form, you can create beautiful teasers that inspire others to give.
+
+Join Early Access
+We're offering early access to this innovative platform for just $5. Your contribution helps us develop the platform while giving you immediate access to create unlimited teasers for your causes.
+
+How It Works
+1. Fill out a simple form with your campaign details
+2. Watch as it transforms into a beautiful, animated teaser
+3. Share your teaser anywhere online
+4. Track engagement and support</textarea>
+                </div>
+            </div>
+
+            <!-- Links Tab -->
+            <div id="linksTab" class="tab-content">
+                <button type="button" class="add-link-btn" onclick="addLinkField()">+ Add Link</button>
+                
+                <div id="linksList">
+                    <div class="link-item">
+                        <div class="form-group">
+                            <label>Link Title</label>
+                            <input type="text" name="linkTitle[]" value="Support on GoFundMe">
+                        </div>
+                        <div class="form-group">
+                            <label>Link Description</label>
+                            <input type="text" name="linkDesc[]" value="Join early access with a $5 donation">
+                        </div>
+                        <div class="form-group">
+                            <label>URL</label>
+                            <input type="text" name="linkUrl[]" placeholder="Enter URL">
+                        </div>
+                    </div>
+
+                    <div class="link-item">
+                        <div class="form-group">
+                            <label>Link Title</label>
+                            <input type="text" name="linkTitle[]" value="Try the Demo">
+                        </div>
+                        <div class="form-group">
+                            <label>Link Description</label>
+                            <input type="text" name="linkDesc[]" value="See how form inputs become teasers">
+                        </div>
+                        <div class="form-group">
+                            <label>URL</label>
+                            <input type="text" name="linkUrl[]" placeholder="Enter URL">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="secondary" onclick="clearForm()">Clear</button>
+                <button type="button" class="secondary" onclick="previewTeaser()">Preview</button>
+                <button type="submit" class="primary">Generate Teaser</button>
+            </div>
+        </form>
+
+        <!-- Preview Section -->
+        <div id="preview" style="display: none;">
+            <h2>Preview</h2>
+            <div class="preview-tabs">
+                <button class="preview-tab active" onclick="switchPreviewTab('previewStory')">Story</button>
+                <button class="preview-tab" onclick="switchPreviewTab('previewLinks')">Links</button>
+            </div>
+            <div class="preview-content">
+                <div id="previewStory" class="preview-tab-content active"></div>
+                <div id="previewLinks" class="preview-tab-content" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected content and activate tab
+            document.getElementById(tabName + 'Tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function addLinkField() {
+            const linksList = document.getElementById('linksList');
+            const newLink = document.createElement('div');
+            newLink.className = 'link-item';
+            newLink.innerHTML = `
+                <div class="form-group">
+                    <label>Link Title</label>
+                    <input type="text" name="linkTitle[]">
+                </div>
+                <div class="form-group">
+                    <label>Link Description</label>
+                    <input type="text" name="linkDesc[]">
+                </div>
+                <div class="form-group">
+                    <label>URL</label>
+                    <input type="text" name="linkUrl[]">
+                </div>
+            `;
+            linksList.appendChild(newLink);
+        }
+
+        function clearForm() {
+            document.getElementById('teaserForm').reset();
+            document.getElementById('preview').style.display = 'none';
+        }
+
+        function switchPreviewTab(tabName) {
+            document.querySelectorAll('.preview-tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.querySelectorAll('.preview-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabName).style.display = 'block';
+            event.target.classList.add('active');
+        }
+
+        function previewTeaser() {
+            const preview = document.getElementById('preview');
+            const storyPreview = document.getElementById('previewStory');
+            const linksPreview = document.getElementById('previewLinks');
+            
+            // Story Preview
+            const title = document.getElementById('title').value;
+            const story = document.getElementById('story').value;
+            storyPreview.innerHTML = `
+                <h2>${title}</h2>
+                <div style="margin-top: 15px;">${story.replace(/\n/g, '<br>')}</div>
+            `;
+            
+            // Links Preview
+            const linkTitles = document.getElementsByName('linkTitle[]');
+            const linkDescs = document.getElementsByName('linkDesc[]');
+            const linkUrls = document.getElementsByName('linkUrl[]');
+            let linksHtml = '';
+            
+            for(let i = 0; i < linkTitles.length; i++) {
+                if(linkTitles[i].value) {
+                    linksHtml += `
+                        <div style="margin-bottom: 15px; padding: 10px; background: #f9fafb; border-radius: 4px;">
+                            <h3 style="color: #00B964;">${linkTitles[i].value}</h3>
+                            <p>${linkDescs[i].value}</p>
+                            <a href="${linkUrls[i].value}" style="color: #00B964;">${linkUrls[i].value || '#'}</a>
+                        </div>
+                    `;
+                }
+            }
+            linksPreview.innerHTML = linksHtml;
+            
+            preview.style.display = 'block';
+            preview.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
